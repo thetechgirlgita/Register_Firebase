@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "404326189181",
+    "project_id": "user-authentication-b422e",
+    "storage_bucket": "user-authentication-b422e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:404326189181:android:b29e4d51f3e66f8f01c914",
+        "android_client_info": {
+          "package_name": "gitakhanal.e_hobby_task"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "404326189181-s2d8n9jgdekqgp2qci8ko6hvvpaqa3op.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDGUMJ8yaEzp_Tdw_4SbX2Z-4D9UxONMhA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "404326189181-s2d8n9jgdekqgp2qci8ko6hvvpaqa3op.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
