@@ -8,29 +8,52 @@ class InitialPage extends StatefulWidget {
 }
 
 class _InitialPageState extends State<InitialPage> {
+  final GlobalKey<FormState> Fkey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Align(
-        alignment: Alignment.center,
-        child:
-      Container(
+        body: Align(
+            alignment: Alignment.center,
+            child: Container(
+                height: MediaQuery.of(context).size.height / 2,
+                width: MediaQuery.of(context).size.width / 1.2,
 
-        height: MediaQuery.of(context).size.height/2,
-        width: MediaQuery.of(context).size.width/1,
+                child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Form(
+                          key: Fkey,
+                          child:
+                          Column(
+                              children:
+                              [
+                                TextFormField(
+                                  decoration:  const InputDecoration(
+                                    hintText: 'Email',
+                                  ),
+                                  validator: (String? value){
+                                    if(value == null || value.isEmpty){
+                                      return 'Email please';
+                                    }
+                                    return null;
+                                  }
 
-        color: Colors.pinkAccent,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children:[
-
-            Form(child: Text("Gita"),
-
-            )
-          ]
-        )
-      ))
-    );
+                      ),
+                SizedBox(
+                  height: 20,
+                ),
+                TextFormField(
+                    decoration:  const InputDecoration(
+                      hintText: 'Password',
+                    ),
+                    validator: (String? value){
+                      if(value == null || value.isEmpty){
+                        return 'Email please';
+                      }
+                      return null;
+                    },),
+                              ]))
+                    ]))));
   }
 }
