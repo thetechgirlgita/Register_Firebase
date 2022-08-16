@@ -1,3 +1,4 @@
+import 'package:e_hobby_task/HomePage.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'constantWidget.dart';
 import 'package:flutter/cupertino.dart';
@@ -27,60 +28,44 @@ class _InitialPageState extends State<InitialPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
         body: SingleChildScrollView(
-        child:
-        Align(
-            alignment: Alignment.center,
-            child: Container(
-                height: MediaQuery.of(context).size.height / 1,
-                width: MediaQuery.of(context).size.width / 1.15,
-                child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      ImageReusable(context),
-                      Form(
-                          key: Fkey,
-                          child: Column(
-                            children: [
-                              TextFieldResuable("Email",  emailController, ),
-                              const SizedBox(
-                                height: 15,
-                              ),
-                              TextFieldResuable("Password",  passwordController, ),
-
-                              ButtonReusable(50, Colors.pinkAccent, (){}, "Login"),
-                        Padding(
-                            padding: const EdgeInsets.only(top: 150),
-                            child: Container(
-                                alignment: Alignment.center,
-                                child: Row(
-                                    mainAxisAlignment:
-                                    MainAxisAlignment.center,
-                                    children: [
-                                      const Text(
-                                        "Don't have an account? ",
-                                        style: TextStyle(
-                                          fontSize: 15,
-                                        ), //textAlign: TextAlign.center,
-                                      ),
-                                      GestureDetector(
-                                        child:  const Text(
-                                          "Register",
-                                          style: TextStyle(
-                                            fontSize: 15,
-                                            fontWeight: FontWeight.bold,
-                                            color: Colors.pinkAccent,
-                                          ),
-                                        ),
-                                        onTap: () {
-                                          Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => const RegisterPage()));
-                                        },
-                                      )
-                                    ]))),
-                            ],
-                          )),
-                    ])))));
+            child: Align(
+                alignment: Alignment.center,
+                child: Container(
+                    height: MediaQuery.of(context).size.height / 1,
+                    width: MediaQuery.of(context).size.width / 1.15,
+                    child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          ImageReusable(context),
+                          Form(
+                              key: Fkey,
+                              child: Column(
+                                children: [
+                                  TextFieldResuable(
+                                    "Email",
+                                    emailController,
+                                  ),
+                                  const SizedBox(
+                                    height: 15,
+                                  ),
+                                  TextFieldResuable(
+                                    "Password",
+                                    passwordController,
+                                  ),
+                                  ButtonReusable(50, Colors.pinkAccent, () {
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (BuildContext context) =>
+                                                HomePage()));
+                                  }, "Login"),
+                                  SignIn_RegisterOption("Don't have an account? ", "Register", (){
+                                    Navigator.push(context, MaterialPageRoute(builder: (BuildContextcontext) => const RegisterPage()));
+                                  })
+                                ],
+                              )),
+                        ])))));
   }
 }

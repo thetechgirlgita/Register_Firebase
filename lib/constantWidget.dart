@@ -14,7 +14,7 @@ TextFieldResuable(String text, TextEditingController controller) {
 ButtonReusable(
   double padding,
   Color color,
-  Function next,
+  Function onTap,
   String text,
 ) {
   return Padding(
@@ -24,8 +24,7 @@ ButtonReusable(
             primary: color,
           ),
           onPressed: () {
-            //login();
-            next;
+            onTap();
           },
           // TODO : Check the user's credentials if it match then allow user to navigate to home page
           child: Container(
@@ -34,7 +33,7 @@ ButtonReusable(
             width: 150,
             child: Text(
               text,
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 15,
                 //fontFamily: 'Roboto',
               ),
@@ -43,10 +42,11 @@ ButtonReusable(
           )));
 }
 
-ImageReusable(context, ){
+ImageReusable(
+  context,
+) {
   return Padding(
-    padding: EdgeInsets.only(
-        bottom: MediaQuery.of(context).size.height * 0.15),
+    padding: EdgeInsets.only(bottom: MediaQuery.of(context).size.height * 0.15),
     child: Container(
       height: 100,
       width: 200,
@@ -58,5 +58,37 @@ ImageReusable(context, ){
   );
 }
 
-
-
+SignIn_RegisterOption(
+    String text, String text2, Function onTap,
+    ){
+  return Padding(
+      padding: const EdgeInsets.only(top: 150),
+      child: Container(
+          alignment: Alignment.center,
+          child: Row(
+              mainAxisAlignment:
+              MainAxisAlignment.center,
+              children: [
+                 Text(
+          text,
+                  style: TextStyle(
+                    fontSize: 15,
+                  ), //textAlign: TextAlign.center,
+                ),
+                GestureDetector(
+                  child:  Text(
+                    text2,
+                    style: TextStyle(
+                      fontSize: 15,
+                      fontWeight:
+                      FontWeight.bold,
+                      color: Colors.pinkAccent,
+                    ),
+                  ),
+                  onTap: () {
+                    onTap();
+                    //Navigator.push(context, MaterialPageRoute(builder: (BuildContextcontext) => const RegisterPage()));
+                  },
+                )
+              ])));
+}

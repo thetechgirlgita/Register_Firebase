@@ -1,6 +1,7 @@
 import 'package:e_hobby_task/InitialPage.dart';
 import 'package:e_hobby_task/constantWidget.dart';
 import 'package:flutter/material.dart';
+import 'HomePage.dart';
 import 'constantWidget.dart';
 
 class RegisterPage extends StatefulWidget {
@@ -56,36 +57,12 @@ class _RegisterPageState extends State<RegisterPage> {
                           TextFieldResuable("Confirm Password",  confirmPasswordController, ),
                         ])
                 ),
-                ButtonReusable(70, Colors.pinkAccent, (){}, "Register"),
-            Padding(
-                padding: const EdgeInsets.only(top: 120),
-                child: Container(
-                    alignment: Alignment.center,
-                    child: Row(
-                        mainAxisAlignment:
-                        MainAxisAlignment.center,
-                        children: [
-                          const Text(
-                            "Have an account? ",
-                            style: const TextStyle(
-                              fontSize: 15,
-                            ), //textAlign: TextAlign.center,
-                          ),
-                          GestureDetector(
-                            child:  const Text(
-                              "SignIn",
-                              style: const TextStyle(
-                                fontSize: 15,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.pinkAccent,
-                              ),
-                            ),
-                            onTap: () {
-
-                              Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => InitialPage()));
-                            },
-                          )
-                        ]))),
+                ButtonReusable(70, Colors.pinkAccent, (){
+                  Navigator.push(context, MaterialPageRoute(builder: (BuildContextcontext) => InitialPage()));
+                }, "Register"),
+                SignIn_RegisterOption("Have an account? ", "SignIn", (){
+                  Navigator.push(context, MaterialPageRoute(builder: (BuildContextcontext) => InitialPage()));
+                })
             ]
           )
       ),)),
