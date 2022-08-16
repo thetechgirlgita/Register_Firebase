@@ -1,4 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
@@ -41,6 +42,19 @@ class _InitialPageState extends State<InitialPage> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
+
+                      Padding(
+                padding: EdgeInsets.fromLTRB(0, 10, 0, 10),
+                  child:
+                   Container(
+                     height: 150,
+                     width: 200,
+
+                     child:
+                      Image.asset('logo/assets/ehobby-logo.png',
+                        fit: BoxFit.cover,
+                      ),
+                   ),),
                       Form(
                           key: Fkey,
                           child: Column(children: [
@@ -50,26 +64,25 @@ class _InitialPageState extends State<InitialPage> {
                                   hintText: 'Email',
                                 ),
 
-                                validator: (String? email) {
-                                  if (email == null || email.isEmpty) {
-                                    return 'Email please';
-                                  }
-                                  return null;
-                                }),
+                              controller: emailController,
+
+                                ),
                             const SizedBox(
                               height: 20,
                             ),
-                            TextFormField(
+                            TextField(
                               decoration: const InputDecoration(
                                 hintText: 'Password',
                               ),
-                              validator: (String? password) {
-                                if (password == null || password.isEmpty) {
-                                  return 'Email please';
-                                }
-                                return null;
-                              },
+                              controller: passwordController,
+                              obscureText: true,
                             ),
+                            //validator: (String? password) {
+                            //                                 if (password == null || password.isEmpty) {
+                            //                                   return 'Email please';
+                            //                                 }
+                            //                                 return null;
+                            //                               },
                             Padding(
                               padding: EdgeInsets.only(top: 30),
                               child:
