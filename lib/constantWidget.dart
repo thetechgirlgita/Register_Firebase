@@ -105,21 +105,21 @@ SignIn_RegisterOption(
           ])));
 }
 
-ReusableContainer(double Height, double Width, BuildContext context ,
-    Widget Widget, ) {
-  return
-  Padding(
-  padding: EdgeInsets.all(5) ,
-  child:
-    Container(
-    height: Height,
-    width: Width,
-    decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(15),
-        border: Border.all(color: Colors.pinkAccent)),
-
+ReusableContainer(
+  double Height,
+  double Width,
+  BuildContext context,
+  Widget Widget,
+) {
+  return Padding(
+    padding: EdgeInsets.all(5),
+    child: Container(
+      height: Height,
+      width: Width,
+      decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(15),
+          border: Border.all(color: Colors.pinkAccent)),
       child: Widget,
-
     ),
   );
 }
