@@ -1,3 +1,4 @@
+import 'package:e_hobby_task/constantWidget.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -11,70 +12,36 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text('HomePage'),
+        centerTitle: true,
+        n
+      ),
       body: SingleChildScrollView(
-        child: GridView.count(
+        child: Column(children: [
+          Padding(
+            padding: EdgeInsets.all(10),
+            child:
+          ReusableContainer(250, context, Colors.red, "Helloe"),),
+          GridView.count(
             crossAxisCount: 2,
-          shrinkWrap: true,
-          primary: false,
-          padding: const EdgeInsets.all(15),
-          crossAxisSpacing: 10,
-          mainAxisSpacing: 10,
-
-          children: [
-            Container(
-              height: 200,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(15),
-
-                color: Colors.pinkAccent,
-              ),
-            ),
-            Container(
-              height: 200,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(15),
-
-                color: Colors.pinkAccent,
-              ),
-            ),
-            Container(
-              height: 200,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(15),
-
-                color: Colors.pinkAccent,
-              ),
-            ),
-            Container(
-              height: 200,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(15),
-
-                color: Colors.pinkAccent,
-              ),
-            ),
-            Container(
-              height: 200,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(15),
-
-                color: Colors.pinkAccent,
-              ),
-            ),
-            Container(
-              height: 200,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(15),
-
-                color: Colors.pinkAccent,
-              ),
-            ),
-
-
-          ],
-        )
-
-
+            shrinkWrap: true,
+            childAspectRatio: (100 / 120),
+            padding: const EdgeInsets.all(10),
+            crossAxisSpacing: 10,
+            mainAxisSpacing: 10,
+            children: [
+              ReusableContainer(
+                  200, context, Colors.pinkAccent, "Piano Classes"),
+              ReusableContainer(
+                  200, context, Colors.pinkAccent, " Calligrapy Classes"),
+              ReusableContainer(
+                  200, context, Colors.pinkAccent, "Guitar Classes"),
+              ReusableContainer(
+                  200, context, Colors.pinkAccent, "Dance Classes")
+            ],
+          )
+        ]),
       ),
     );
   }

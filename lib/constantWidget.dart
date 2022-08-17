@@ -35,13 +35,11 @@ ButtonReusable(
       // TODO : Check the user's credentials if it match then allow user to navigate to home page
       child: Container(
           alignment: Alignment.center,
-
           child: ElevatedButton(
-
             style: ElevatedButton.styleFrom(
-              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
-              minimumSize: Size(MediaQuery.of(context).size.width*0.6, 50),
-
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(15)),
+              minimumSize: Size(MediaQuery.of(context).size.width * 0.6, 50),
               primary: color,
             ),
             onPressed: () {
@@ -105,4 +103,26 @@ SignIn_RegisterOption(
               },
             )
           ])));
+}
+
+ReusableContainer(
+    double Height, BuildContext context, Color color, String text) {
+  return Container(
+    height: Height,
+    width: MediaQuery.of(context).size.width,
+    decoration: BoxDecoration(
+      borderRadius: BorderRadius.circular(15),
+      color: color,
+    ),
+    child: Align(
+      alignment: Alignment.center,
+      child: Text(
+        text,
+        style: TextStyle(
+          fontSize: 20,
+        ),
+        textAlign: TextAlign.center,
+      ),
+    ),
+  );
 }
