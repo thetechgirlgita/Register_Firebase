@@ -12,12 +12,69 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SingleChildScrollView(
-        child: Container(
-          child: Text("Home Page",
-            textAlign: TextAlign.center,
-          )
+        child: GridView.count(
+            crossAxisCount: 2,
+          shrinkWrap: true,
+          primary: false,
+          padding: const EdgeInsets.all(15),
+          crossAxisSpacing: 10,
+          mainAxisSpacing: 10,
 
-        ),
+          children: [
+            Container(
+              height: 200,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(15),
+
+                color: Colors.pinkAccent,
+              ),
+            ),
+            Container(
+              height: 200,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(15),
+
+                color: Colors.pinkAccent,
+              ),
+            ),
+            Container(
+              height: 200,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(15),
+
+                color: Colors.pinkAccent,
+              ),
+            ),
+            Container(
+              height: 200,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(15),
+
+                color: Colors.pinkAccent,
+              ),
+            ),
+            Container(
+              height: 200,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(15),
+
+                color: Colors.pinkAccent,
+              ),
+            ),
+            Container(
+              height: 200,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(15),
+
+                color: Colors.pinkAccent,
+              ),
+            ),
+
+
+          ],
+        )
+
+
       ),
     );
   }
