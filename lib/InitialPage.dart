@@ -45,13 +45,14 @@ class _InitialPageState extends State<InitialPage> {
                                 children: [
                                   TextFieldResuable(
                                     "Email",
+                                    "Enter your email",
                                     emailController,
                                   ),
                                   const SizedBox(
                                     height: 15,
                                   ),
                                   TextFieldResuable(
-                                    "Password",
+                                    "Password","Enter your password",
                                     passwordController,
                                   ),
                                   ButtonReusable(50, Colors.pinkAccent, () {
@@ -63,8 +64,9 @@ class _InitialPageState extends State<InitialPage> {
                                             builder: (BuildContext context) =>
                                                 HomePage())
                                     ).onError((error, stackTrace) =>
-                                        print("Error ${error.toString()}"),
-                                    ));
+
+                                    print("Error ${error.toString()}")));
+
                                   }, "Login"),
 
 

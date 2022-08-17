@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 
 // ignore: non_constant_identifier_names
-TextFieldResuable(String text, TextEditingController controller) {
+TextFieldResuable(String text,  String text2, TextEditingController controller) {
   return TextField(
     decoration: InputDecoration(
       labelText: text,
+      hintText: text2,
     ),
     controller: controller,
   );

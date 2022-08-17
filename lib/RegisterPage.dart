@@ -47,15 +47,15 @@ class _RegisterPageState extends State<RegisterPage> {
                   child:
                       Column(
                         children:[
-                  TextFieldResuable("Email",  emailController, ),
+                  TextFieldResuable("Email",  "Register your email here",emailController, ),
                   const SizedBox(
                     height: 15,
                   ),
-                  TextFieldResuable("Password",  passwordController, ),
+                  TextFieldResuable("Password", "Create a strong password", passwordController, ),
                           const SizedBox(
                             height: 15,
                           ),
-                          TextFieldResuable("Confirm Password",  confirmPasswordController, ),
+                          TextFieldResuable("Confirm Password", "Confirm your password", confirmPasswordController, ),
                         ])
                 ),
                 ButtonReusable(70, Colors.pinkAccent, (){
@@ -63,8 +63,7 @@ class _RegisterPageState extends State<RegisterPage> {
                       email: emailController.text,
                       password: passwordController.text).then(
                           (value) =>
-                  Navigator.push(context, MaterialPageRoute(builder: (BuildContextcontext) => InitialPage())),
-    );}, "Register"),
+                  Navigator.push(context, MaterialPageRoute(builder: (BuildContextcontext) => InitialPage())));}, "Register"),
                 SignIn_RegisterOption("Have an account? ", "SignIn", (){
                   Navigator.push(context, MaterialPageRoute(builder: (BuildContextcontext) => InitialPage()));
                 })
