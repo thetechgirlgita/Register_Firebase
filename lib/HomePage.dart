@@ -1,5 +1,6 @@
 import 'package:e_hobby_task/constantWidget.dart';
 import 'package:flutter/material.dart';
+import 'CalligraphyClass.dart';
 import 'GuitarClass.dart';
 import 'PianoClass.dart';
 
@@ -71,7 +72,7 @@ class _HomePageState extends State<HomePage> {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (BuildContext) => PianoClass(),
+                            builder: (BuildContext) => CalligraphyClass(),
                           ));
                     },
                     child: const Text(
