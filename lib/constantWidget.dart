@@ -1,11 +1,21 @@
 import 'package:flutter/material.dart';
 
 // ignore: non_constant_identifier_names
-TextFieldResuable(String text,  String text2, TextEditingController controller) {
+TextFieldResuable(
+    bool want,
+    String text,
+    String text2,
+    //Function _errorText,
+    TextEditingController controller) {
   return TextField(
+    autofocus: want,
     decoration: InputDecoration(
+      border: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(15),
+      ),
       labelText: text,
       hintText: text2,
+      //errorText: _errorText.toString(),
     ),
     controller: controller,
   );
@@ -14,28 +24,33 @@ TextFieldResuable(String text,  String text2, TextEditingController controller) 
 // to reuse button widget for clean code.
 ButtonReusable(
   double padding,
+  BuildContext context,
   Color color,
   Function onTap,
   String text,
 ) {
   return Padding(
       padding: EdgeInsets.only(top: padding),
-      child: ElevatedButton(
-          style: ElevatedButton.styleFrom(
-            primary: color,
-          ),
-          onPressed: () {
-            onTap();
-          },
-          // TODO : Check the user's credentials if it match then allow user to navigate to home page
-          child: Container(
-            alignment: Alignment.center,
-            height: 45,
-            width: 150,
+
+      // TODO : Check the user's credentials if it match then allow user to navigate to home page
+      child: Container(
+          alignment: Alignment.center,
+
+          child: ElevatedButton(
+
+            style: ElevatedButton.styleFrom(
+              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
+              minimumSize: Size(MediaQuery.of(context).size.width*0.6, 50),
+
+              primary: color,
+            ),
+            onPressed: () {
+              onTap();
+            },
             child: Text(
               text,
               style: const TextStyle(
-                fontSize: 15,
+                fontSize: 18,
                 //fontFamily: 'Roboto',
               ),
               //textAlign: TextAlign.center,
@@ -60,36 +75,34 @@ ImageReusable(
 }
 
 SignIn_RegisterOption(
-    String text, String text2, Function onTap,
-    ){
+  String text,
+  String text2,
+  Function onTap,
+) {
   return Padding(
       padding: const EdgeInsets.only(top: 150),
       child: Container(
           alignment: Alignment.center,
-          child: Row(
-              mainAxisAlignment:
-              MainAxisAlignment.center,
-              children: [
-                 Text(
-          text,
-                  style: TextStyle(
-                    fontSize: 15,
-                  ), //textAlign: TextAlign.center,
+          child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+            Text(
+              text,
+              style: TextStyle(
+                fontSize: 15,
+              ), //textAlign: TextAlign.center,
+            ),
+            GestureDetector(
+              child: Text(
+                text2,
+                style: TextStyle(
+                  fontSize: 15,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.pinkAccent,
                 ),
-                GestureDetector(
-                  child:  Text(
-                    text2,
-                    style: TextStyle(
-                      fontSize: 15,
-                      fontWeight:
-                      FontWeight.bold,
-                      color: Colors.pinkAccent,
-                    ),
-                  ),
-                  onTap: () {
-                    onTap();
-                    //Navigator.push(context, MaterialPageRoute(builder: (BuildContextcontext) => const RegisterPage()));
-                  },
-                )
-              ])));
+              ),
+              onTap: () {
+                onTap();
+                //Navigator.push(context, MaterialPageRoute(builder: (BuildContextcontext) => const RegisterPage()));
+              },
+            )
+          ])));
 }

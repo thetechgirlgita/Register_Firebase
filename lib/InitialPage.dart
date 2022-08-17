@@ -25,6 +25,7 @@ class _InitialPageState extends State<InitialPage> {
     super.dispose();
   }
 
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -44,18 +45,27 @@ class _InitialPageState extends State<InitialPage> {
                               child: Column(
                                 children: [
                                   TextFieldResuable(
+
+                                    true,
                                     "Email",
                                     "Enter your email",
+                                    //(){_errorText;},
                                     emailController,
                                   ),
                                   const SizedBox(
                                     height: 15,
                                   ),
                                   TextFieldResuable(
-                                    "Password","Enter your password",
+                                    true,
+                                    'Password',
+                                    "Enter your password",
+                                   // (){
+                                     // return _errorText;
+                                   // },
+
                                     passwordController,
                                   ),
-                                  ButtonReusable(50, Colors.pinkAccent, () {
+                                  ButtonReusable(50, context,  Colors.pinkAccent, () {
                                     FirebaseAuth.instance.signInWithEmailAndPassword(email: emailController.text, password: passwordController.text).then(
                                             (value) =>
                                     Navigator.push(

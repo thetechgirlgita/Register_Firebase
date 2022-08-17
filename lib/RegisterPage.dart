@@ -24,6 +24,8 @@ class _RegisterPageState extends State<RegisterPage> {
     emailController.dispose();
     passwordController.dispose();
     super.dispose();}
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -47,18 +49,24 @@ class _RegisterPageState extends State<RegisterPage> {
                   child:
                       Column(
                         children:[
-                  TextFieldResuable("Email",  "Register your email here",emailController, ),
+                  TextFieldResuable( false,"Email", "Register your email Address",
+                       // (){return _errorText;},
+                    emailController, ),
                   const SizedBox(
                     height: 15,
                   ),
-                  TextFieldResuable("Password", "Create a strong password", passwordController, ),
+                  TextFieldResuable( false, "Password", "Create a strong password",
+                      //  (){return _errorText;},
+                    passwordController, ),
                           const SizedBox(
                             height: 15,
                           ),
-                          TextFieldResuable("Confirm Password", "Confirm your password", confirmPasswordController, ),
+                          TextFieldResuable( false,"Confirm Password", "Confirm your password",
+                               // (){},
+                            confirmPasswordController, ),
                         ])
                 ),
-                ButtonReusable(70, Colors.pinkAccent, (){
+                ButtonReusable(70, context , Colors.pinkAccent, (){
                   FirebaseAuth.instance.createUserWithEmailAndPassword(
                       email: emailController.text,
                       password: passwordController.text).then(
