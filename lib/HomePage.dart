@@ -1,4 +1,5 @@
 import 'package:e_hobby_task/constantWidget.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'CalligraphyClass.dart';
 import 'DanceClass.dart';
@@ -28,6 +29,7 @@ class _HomePageState extends State<HomePage> {
             200,
             400,
             context,
+            // Image.asset('logo/assets/ehobby-logo.png'),
             ElevatedButton(
               style: ElevatedButton.styleFrom(
                 primary: Colors.white,
@@ -40,13 +42,15 @@ class _HomePageState extends State<HomePage> {
               onPressed: () {
                 // Navigator.push(context, MaterialPageRoute(builder: (BuildContext) => PianoClass(),));
               },
-              child: const Text(
-                "ShowCase",
-                style: TextStyle(
-                  fontSize: 20,
-                  color: Colors.pinkAccent,
-                ),
-                textAlign: TextAlign.center,
+              child: Container(
+                height: MediaQuery.of(context).size.height,
+                width: MediaQuery.of(context).size.width,
+                decoration: BoxDecoration(
+                    image: new DecorationImage(
+                        image: new AssetImage(
+                          "logo/assets/ehobby-logo.png",
+                        ),
+                        fit: BoxFit.contain)),
               ),
             ),
           ),
@@ -60,62 +64,105 @@ class _HomePageState extends State<HomePage> {
                   250,
                   175,
                   context,
+                  //  Image.asset('logo/assets/calligraphy.jpg'),
                   ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      primary: Colors.white,
-                      minimumSize: Size(MediaQuery.of(context).size.width,
-                          MediaQuery.of(context).size.height),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(15),
+                      style: ElevatedButton.styleFrom(
+                        primary: Colors.white,
+                        minimumSize: Size(MediaQuery.of(context).size.width,
+                            MediaQuery.of(context).size.height),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(15),
+                        ),
                       ),
-                    ),
-                    onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (BuildContext) => CalligraphyClass(),
-                          ));
-                    },
-                    child: const Text(
-                      "Calligraphy Classes",
-                      style: TextStyle(
-                        fontSize: 20,
-                        color: Colors.pinkAccent,
-                      ),
-                      textAlign: TextAlign.center,
-                    ),
-                  ),
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (BuildContext) => CalligraphyClass(),
+                            ));
+                      },
+                      child: Container(
+                        height: MediaQuery.of(context).size.height,
+                        width: MediaQuery.of(context).size.width,
+                        decoration: const BoxDecoration(
+                            image: DecorationImage(
+                                image: AssetImage(
+                                  "logo/assets/calligraphy.jpg",
+                                ),
+                                fit: BoxFit.fill)),
+                        child:  Padding(
+                          padding: EdgeInsets.fromLTRB(0, 200, 0, 5),
+                          child: Container(
+                            alignment: Alignment.center,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(15),
+                              color: Colors.white,),
+
+
+                            child: Text(
+                            "Calligraphy Classes",
+                            style: TextStyle(
+                              fontSize: 20,
+                              color: Colors.pinkAccent,
+                            ),
+                            textAlign: TextAlign.center,
+                          ),
+                        ),
+                      )),),
                 ),
                 ReusableContainer(
                   250,
                   175,
                   context,
+                  //  Image.asset('logo/assets/guitar.jpg'),
                   ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      primary: Colors.white,
-                      minimumSize: Size(MediaQuery.of(context).size.width,
-                          MediaQuery.of(context).size.height),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(15),
+                      style: ElevatedButton.styleFrom(
+                        primary: Colors.white,
+                        minimumSize: Size(MediaQuery.of(context).size.width,
+                            MediaQuery.of(context).size.height),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(15),
+                        ),
                       ),
-                    ),
-                    onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (BuildContext) => GuitarClass(),
-                          ));
-                    },
-                    child: const Text(
-                      "Guitar Classes",
-                      style: TextStyle(
-                        fontSize: 20,
-                        color: Colors.pinkAccent,
-                      ),
-                      textAlign: TextAlign.center,
-                    ),
-                  ),
-                ),
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (BuildContext) => GuitarClass(),
+                            ));
+                      },
+                      child: Container(
+                        height: MediaQuery.of(context).size.height,
+                        width: MediaQuery.of(context).size.width,
+                        decoration: BoxDecoration(
+                            image: new DecorationImage(
+                                image: new AssetImage(
+                                  "logo/assets/guitar.jpg",
+                                ),
+                                fit: BoxFit.fill)),
+                        child:  Padding(
+                          padding: EdgeInsets.fromLTRB(0, 200, 0, 5),
+                          child: Container(
+                            alignment: Alignment.center,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(15),
+                              color: Colors.white,
+
+                            ),
+
+
+
+                       child: Text(
+                            "Guitar Classes",
+                            style: TextStyle(
+                              fontSize: 20,
+                              color: Colors.pinkAccent,
+                            ),
+                            textAlign: TextAlign.center,
+                          ),
+                        ),
+                      )),
+                ))
               ],
             )),
         Row(mainAxisAlignment: MainAxisAlignment.center, children: [
@@ -123,6 +170,7 @@ class _HomePageState extends State<HomePage> {
             250,
             175,
             context,
+            //Image.asset('logo/assets/piano.jpg'),
             ElevatedButton(
               style: ElevatedButton.styleFrom(
                 primary: Colors.white,
@@ -139,20 +187,42 @@ class _HomePageState extends State<HomePage> {
                       builder: (BuildContext) => PianoClass(),
                     ));
               },
-              child: const Text(
-                "Piano Classes",
-                style: TextStyle(
-                  fontSize: 20,
-                  color: Colors.pinkAccent,
-                ),
-                textAlign: TextAlign.center,
-              ),
-            ),
+              child: Container(
+                  height: MediaQuery.of(context).size.height,
+                  width: MediaQuery.of(context).size.width,
+                  decoration: BoxDecoration(
+                      image: new DecorationImage(
+                          image: new AssetImage(
+                            "logo/assets/piano.jpg",
+                          ),
+                          fit: BoxFit.fill)),
+                  child:  Padding(
+                    padding: EdgeInsets.fromLTRB(0, 200, 0, 5),
+                    child:Container(
+                      alignment: Alignment.center,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(15),
+                        color: Colors.white,
+
+                      ),
+
+
+               child: Text(
+                      "Piano Classes",
+                      style: TextStyle(
+                        fontSize: 20,
+                        color: Colors.pinkAccent,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                  )),
+            ),)
           ),
           ReusableContainer(
             250,
             175,
             context,
+            //Image.asset('logo/assets/dance.jpg'),
             ElevatedButton(
               style: ElevatedButton.styleFrom(
                 primary: Colors.white,
@@ -169,16 +239,37 @@ class _HomePageState extends State<HomePage> {
                       builder: (BuildContext) => DanceClass(),
                     ));
               },
-              child: const Text(
-                "Dance Classes",
-                style: TextStyle(
-                  fontSize: 20,
-                  color: Colors.pinkAccent,
+              child: Container(
+                height: MediaQuery.of(context).size.height,
+                width: MediaQuery.of(context).size.width,
+                decoration: BoxDecoration(
+                    image: new DecorationImage(
+                        image: new AssetImage(
+                          "logo/assets/dance.jpg",
+                        ),
+                        fit: BoxFit.fill)),
+                child:  Padding(
+                  padding: EdgeInsets.fromLTRB(0, 210, 0, 5),
+                  child:  Container(
+                    alignment: Alignment.center,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(15),
+                      color: Colors.white,
+
+                    ),
+
+                    child: Text(
+                    "Dance Classes",
+                    style: TextStyle(
+                      fontSize: 20,
+                      color: Colors.pinkAccent,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),)
                 ),
-                textAlign: TextAlign.center,
               ),
             ),
-          ),
+          )
         ])
       ])),
     );

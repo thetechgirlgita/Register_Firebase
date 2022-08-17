@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 
 // ignore: non_constant_identifier_names
@@ -109,6 +111,7 @@ ReusableContainer(
   double Height,
   double Width,
   BuildContext context,
+
   Widget Widget,
 ) {
   return Padding(
@@ -118,8 +121,59 @@ ReusableContainer(
       width: Width,
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(15),
+
           border: Border.all(color: Colors.pinkAccent)),
       child: Widget,
     ),
   );
+}
+//----------------------------------------------------------------------------------------------------
+
+ReusablePage(BuildContext context, String text, String text2 ){
+  return Container(
+      height: MediaQuery.of(context).size.height,
+      width: MediaQuery.of(context).size.width,
+      child: Column(children:[
+        ReusableContainer(200, MediaQuery.of(context).size.width, context, Container(
+          child:Container(
+            alignment: Alignment.center,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(15),
+              color: Colors.white,
+
+            ),
+
+            child: Text(
+              text,
+              style: TextStyle(
+                fontSize: 20,
+                color: Colors.pinkAccent,
+              ),
+              textAlign: TextAlign.center,
+            ),
+          ),
+        )),
+        Padding(
+          padding: EdgeInsets.only(top: 40),
+          child: Text(text2,
+
+            style: TextStyle(
+              fontSize: 20,
+            ),
+            textAlign: TextAlign.center,
+          ),
+        ),
+        Padding(
+            padding: EdgeInsets.only(top: 40),
+            child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                    primary: Colors.pinkAccent,
+                    minimumSize: Size(200, 50)
+                ),
+                onPressed: (){},
+                child: Text("Buy Course")
+            )
+
+        )
+      ]));
 }

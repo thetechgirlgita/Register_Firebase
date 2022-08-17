@@ -1,3 +1,4 @@
+import 'package:e_hobby_task/constantWidget.dart';
 import 'package:flutter/material.dart';
 
 class DanceClass extends StatefulWidget {
@@ -18,7 +19,11 @@ class _DanceClassState extends State<DanceClass> {
 
       ),
       body: SingleChildScrollView(
-        child: const Text("Dance class"),
+        child: ReusablePage(context, "Dance Classes",
+            "Dance has always been a part of human culture, "
+                "rituals and celebrations. "
+                "Today, most dancing is about recreation and self-expression, "
+            "although it can also be done as a competitive activity.")
       ),
     );
   }
