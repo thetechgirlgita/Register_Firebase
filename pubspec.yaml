@@ -44,7 +44,11 @@ flutter:
   uses-material-design: true
   assets:
     - logo/assets/ehobby-logo.png
-  #   - images/a_dot_ham.jpeg
+    - logo/assets/dance.jpg
+    - logo/assets/guitar.jpg
+    - logo/assets/calligraphy.jpg
+    - logo/assets/piano.jpg
+
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
