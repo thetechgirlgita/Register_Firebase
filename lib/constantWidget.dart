@@ -106,7 +106,7 @@ SignIn_RegisterOption(
 }
 
 ReusableContainer(
-    double Height, BuildContext context, Color color, String text) {
+    double Height, BuildContext context, Color color, Function onTap, String text) {
   return Container(
     height: Height,
     width: MediaQuery.of(context).size.width,
@@ -116,13 +116,18 @@ ReusableContainer(
     ),
     child: Align(
       alignment: Alignment.center,
-      child: Text(
+      child:
+      GestureDetector(
+        onTap: onTap(),
+  child:
+      Text(
         text,
         style: TextStyle(
           fontSize: 20,
+          color: Colors.white,
         ),
         textAlign: TextAlign.center,
       ),
-    ),
+    ),)
   );
 }

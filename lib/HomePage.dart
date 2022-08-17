@@ -22,7 +22,7 @@ class _HomePageState extends State<HomePage> {
           Padding(
             padding: EdgeInsets.all(10),
             child:
-          ReusableContainer(250, context, Colors.red, "Helloe"),),
+          ReusableContainer(250, context, Colors.red, (){}, "Helloe"),),
           GridView.count(
             crossAxisCount: 2,
             shrinkWrap: true,
@@ -32,13 +32,17 @@ class _HomePageState extends State<HomePage> {
             mainAxisSpacing: 10,
             children: [
               ReusableContainer(
-                  200, context, Colors.pinkAccent, "Piano Classes"),
+                  200, context, Colors.pinkAccent, (){
+                    Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => PainoClass(),));
+              },"Piano Classes"),
               ReusableContainer(
-                  200, context, Colors.pinkAccent, " Calligrapy Classes"),
+                  200, context, Colors.pinkAccent,(){
+                    Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => PainoClass(),));
+    }, " Calligrapy Classes"),
               ReusableContainer(
-                  200, context, Colors.pinkAccent, "Guitar Classes"),
+                  200, context, Colors.pinkAccent,(){Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => PainoClass(),));}, "Guitar Classes"),
               ReusableContainer(
-                  200, context, Colors.pinkAccent, "Dance Classes")
+                  200, context, Colors.pinkAccent,(){Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => PainoClass(),));}, "Dance Classes")
             ],
           )
         ]),
