@@ -55,12 +55,21 @@ class _InitialPageState extends State<InitialPage> {
                                     passwordController,
                                   ),
                                   ButtonReusable(50, Colors.pinkAccent, () {
+                                    FirebaseAuth.instance.signInWithEmailAndPassword(email: emailController.text, password: passwordController.text).then(
+                                            (value) =>
                                     Navigator.push(
                                         context,
                                         MaterialPageRoute(
                                             builder: (BuildContext context) =>
-                                                HomePage()));
+                                                HomePage())
+                                    ).onError((error, stackTrace) =>
+                                        print("Error ${error.toString()}"),
+                                    ));
                                   }, "Login"),
+
+
+
+
                                   SignIn_RegisterOption("Don't have an account? ", "Register", (){
                                     Navigator.push(context, MaterialPageRoute(builder: (BuildContextcontext) => const RegisterPage()));
                                   })

@@ -1,5 +1,6 @@
 import 'package:e_hobby_task/InitialPage.dart';
 import 'package:e_hobby_task/constantWidget.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'HomePage.dart';
 import 'constantWidget.dart';
@@ -58,8 +59,12 @@ class _RegisterPageState extends State<RegisterPage> {
                         ])
                 ),
                 ButtonReusable(70, Colors.pinkAccent, (){
-                  Navigator.push(context, MaterialPageRoute(builder: (BuildContextcontext) => InitialPage()));
-                }, "Register"),
+                  FirebaseAuth.instance.createUserWithEmailAndPassword(
+                      email: emailController.text,
+                      password: passwordController.text).then(
+                          (value) =>
+                  Navigator.push(context, MaterialPageRoute(builder: (BuildContextcontext) => InitialPage())),
+    );}, "Register"),
                 SignIn_RegisterOption("Have an account? ", "SignIn", (){
                   Navigator.push(context, MaterialPageRoute(builder: (BuildContextcontext) => InitialPage()));
                 })
