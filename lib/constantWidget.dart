@@ -105,29 +105,21 @@ SignIn_RegisterOption(
           ])));
 }
 
-ReusableContainer(
-    double Height, BuildContext context, Color color, Function onTap, String text) {
-  return Container(
-    height: Height,
-    width: MediaQuery.of(context).size.width,
-    decoration: BoxDecoration(
-      borderRadius: BorderRadius.circular(15),
-      color: color,
-    ),
-    child: Align(
-      alignment: Alignment.center,
-      child:
-      GestureDetector(
-        onTap: onTap(),
+ReusableContainer(double Height, double Width, BuildContext context ,
+    Widget Widget, ) {
+  return
+  Padding(
+  padding: EdgeInsets.all(5) ,
   child:
-      Text(
-        text,
-        style: TextStyle(
-          fontSize: 20,
-          color: Colors.white,
-        ),
-        textAlign: TextAlign.center,
-      ),
-    ),)
+    Container(
+    height: Height,
+    width: Width,
+    decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(15),
+        border: Border.all(color: Colors.pinkAccent)),
+
+      child: Widget,
+
+    ),
   );
 }
