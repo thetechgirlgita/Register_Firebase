@@ -1,4 +1,6 @@
+import 'package:e_hobby_task/InitialPage.dart';
 import 'package:e_hobby_task/constantWidget.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'CalligraphyClass.dart';
@@ -14,12 +16,25 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  final emailController = TextEditingController();
+  final passwordController = TextEditingController();
+  //final GlobalKey<FormState> Fkey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text('HomePage'),
         centerTitle: true,
+        actions: <Widget> [
+           IconButton(
+            icon: Icon(Icons.logout_rounded),
+            onPressed: (){
+              FirebaseAuth.instance.signOut(
+              ).then((value) => Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => InitialPage())) );
+             //
+             }
+          )
+        ],
       ),
       body: SingleChildScrollView(
           child: Column(children: [
