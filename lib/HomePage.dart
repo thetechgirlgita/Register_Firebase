@@ -32,14 +32,24 @@ class _HomePageState extends State<HomePage> {
                 showDialog(
                     context: context,
                     builder: (BuildContext context) {
-                      return AlertDialog(
+                      return
+                        Container(
+
+                          height: 100,
+                          width: 100,
+                          child:AlertDialog(
+
                         title: Text("Alert!"),
                         content:
-                            const Text("By click Yes you will log out from here. "),
+                            const Text("By clicking Yes you will log out from here. ",
+                              style: TextStyle(
+                                color: Colors.black
+                              ),
+                            ),
                         actions: [
-                         const Container(
-                              child: ElevatedButton(
-                            child: Text("Yes?"),
+
+                               ElevatedButton(
+                            child: Text("Yes"),
                             onPressed: () {
                               FirebaseAuth.instance.signOut().then((value) =>
                                   Navigator.push(
@@ -48,9 +58,9 @@ class _HomePageState extends State<HomePage> {
                                           builder: (BuildContext context) =>
                                               InitialPage())));
                             },
-                          ))
+                          )
                         ],
-                      );
+                          ));
                     });
               }),
         ],
