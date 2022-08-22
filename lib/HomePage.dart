@@ -25,25 +25,34 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         title: Text('HomePage'),
         centerTitle: true,
-        actions: <Widget> [
-           IconButton(
-            icon: Icon(Icons.logout_rounded),
-            onPressed: (){
-              AlertDialog(
-                actions: [
-                  ElevatedButton(
-                      child: Text("You are logging out?"),
+        actions: <Widget>[
+          IconButton(
+              icon: Icon(Icons.logout_rounded),
               onPressed: () {
-                FirebaseAuth.instance.signOut(
-                ).then((value) =>
-                    Navigator.push(context, MaterialPageRoute(builder: (
-                        BuildContext context) => InitialPage())));
-              },//,
-                      )
-                ],
-              );
-             }
-          )
+                showDialog(
+                    context: context,
+                    builder: (BuildContext context) {
+                      return AlertDialog(
+                        title: Text("Alert!"),
+                        content:
+                            const Text("By click Yes you will log out from here. "),
+                        actions: [
+                         const Container(
+                              child: ElevatedButton(
+                            child: Text("Yes?"),
+                            onPressed: () {
+                              FirebaseAuth.instance.signOut().then((value) =>
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (BuildContext context) =>
+                                              InitialPage())));
+                            },
+                          ))
+                        ],
+                      );
+                    });
+              }),
         ],
       ),
       body: SingleChildScrollView(
@@ -91,22 +100,22 @@ class _HomePageState extends State<HomePage> {
                   context,
                   //  Image.asset('logo/assets/calligraphy.jpg'),
                   ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        primary: Colors.white,
-                        minimumSize: Size(MediaQuery.of(context).size.width,
-                            MediaQuery.of(context).size.height),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(15),
-                        ),
+                    style: ElevatedButton.styleFrom(
+                      primary: Colors.white,
+                      minimumSize: Size(MediaQuery.of(context).size.width,
+                          MediaQuery.of(context).size.height),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(15),
                       ),
-                      onPressed: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (BuildContext) => CalligraphyClass(),
-                            ));
-                      },
-                      child: Container(
+                    ),
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (BuildContext) => CalligraphyClass(),
+                          ));
+                    },
+                    child: Container(
                         height: MediaQuery.of(context).size.height,
                         width: MediaQuery.of(context).size.width,
                         decoration: const BoxDecoration(
@@ -115,32 +124,32 @@ class _HomePageState extends State<HomePage> {
                                   "logo/assets/calligraphy.jpg",
                                 ),
                                 fit: BoxFit.fill)),
-                        child:  Padding(
+                        child: Padding(
                           padding: EdgeInsets.fromLTRB(0, 200, 0, 5),
                           child: Container(
                             alignment: Alignment.center,
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(15),
-                              color: Colors.white,),
-
-
-                            child: Text(
-                            "Calligraphy Classes",
-                            style: TextStyle(
-                              fontSize: 20,
-                              color: Colors.pinkAccent,
+                              color: Colors.white,
                             ),
-                            textAlign: TextAlign.center,
+                            child: Text(
+                              "Calligraphy Classes",
+                              style: TextStyle(
+                                fontSize: 20,
+                                color: Colors.pinkAccent,
+                              ),
+                              textAlign: TextAlign.center,
+                            ),
                           ),
-                        ),
-                      )),),
+                        )),
+                  ),
                 ),
                 ReusableContainer(
-                  250,
-                  175,
-                  context,
-                  //  Image.asset('logo/assets/guitar.jpg'),
-                  ElevatedButton(
+                    250,
+                    175,
+                    context,
+                    //  Image.asset('logo/assets/guitar.jpg'),
+                    ElevatedButton(
                       style: ElevatedButton.styleFrom(
                         primary: Colors.white,
                         minimumSize: Size(MediaQuery.of(context).size.width,
@@ -157,62 +166,58 @@ class _HomePageState extends State<HomePage> {
                             ));
                       },
                       child: Container(
-                        height: MediaQuery.of(context).size.height,
-                        width: MediaQuery.of(context).size.width,
-                        decoration: BoxDecoration(
-                            image: new DecorationImage(
-                                image: new AssetImage(
-                                  "logo/assets/guitar.jpg",
+                          height: MediaQuery.of(context).size.height,
+                          width: MediaQuery.of(context).size.width,
+                          decoration: BoxDecoration(
+                              image: new DecorationImage(
+                                  image: new AssetImage(
+                                    "logo/assets/guitar.jpg",
+                                  ),
+                                  fit: BoxFit.fill)),
+                          child: Padding(
+                            padding: EdgeInsets.fromLTRB(0, 200, 0, 5),
+                            child: Container(
+                              alignment: Alignment.center,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(15),
+                                color: Colors.white,
+                              ),
+                              child: Text(
+                                "Guitar Classes",
+                                style: TextStyle(
+                                  fontSize: 20,
+                                  color: Colors.pinkAccent,
                                 ),
-                                fit: BoxFit.fill)),
-                        child:  Padding(
-                          padding: EdgeInsets.fromLTRB(0, 200, 0, 5),
-                          child: Container(
-                            alignment: Alignment.center,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(15),
-                              color: Colors.white,
-
+                                textAlign: TextAlign.center,
+                              ),
                             ),
-
-
-
-                       child: Text(
-                            "Guitar Classes",
-                            style: TextStyle(
-                              fontSize: 20,
-                              color: Colors.pinkAccent,
-                            ),
-                            textAlign: TextAlign.center,
-                          ),
-                        ),
-                      )),
-                ))
+                          )),
+                    ))
               ],
             )),
         Row(mainAxisAlignment: MainAxisAlignment.center, children: [
           ReusableContainer(
-            250,
-            175,
-            context,
-            //Image.asset('logo/assets/piano.jpg'),
-            ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                primary: Colors.white,
-                minimumSize: Size(MediaQuery.of(context).size.width,
-                    MediaQuery.of(context).size.height),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(15),
+              250,
+              175,
+              context,
+              //Image.asset('logo/assets/piano.jpg'),
+              ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  primary: Colors.white,
+                  minimumSize: Size(MediaQuery.of(context).size.width,
+                      MediaQuery.of(context).size.height),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(15),
+                  ),
                 ),
-              ),
-              onPressed: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (BuildContext) => PianoClass(),
-                    ));
-              },
-              child: Container(
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (BuildContext) => PianoClass(),
+                      ));
+                },
+                child: Container(
                   height: MediaQuery.of(context).size.height,
                   width: MediaQuery.of(context).size.width,
                   decoration: BoxDecoration(
@@ -221,28 +226,25 @@ class _HomePageState extends State<HomePage> {
                             "logo/assets/piano.jpg",
                           ),
                           fit: BoxFit.fill)),
-                  child:  Padding(
-                    padding: EdgeInsets.fromLTRB(0, 200, 0, 5),
-                    child:Container(
-                      alignment: Alignment.center,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(15),
-                        color: Colors.white,
-
-                      ),
-
-
-               child: Text(
-                      "Piano Classes",
-                      style: TextStyle(
-                        fontSize: 20,
-                        color: Colors.pinkAccent,
-                      ),
-                      textAlign: TextAlign.center,
-                    ),
-                  )),
-            ),)
-          ),
+                  child: Padding(
+                      padding: EdgeInsets.fromLTRB(0, 200, 0, 5),
+                      child: Container(
+                        alignment: Alignment.center,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(15),
+                          color: Colors.white,
+                        ),
+                        child: Text(
+                          "Piano Classes",
+                          style: TextStyle(
+                            fontSize: 20,
+                            color: Colors.pinkAccent,
+                          ),
+                          textAlign: TextAlign.center,
+                        ),
+                      )),
+                ),
+              )),
           ReusableContainer(
             250,
             175,
@@ -273,25 +275,23 @@ class _HomePageState extends State<HomePage> {
                           "logo/assets/dance.jpg",
                         ),
                         fit: BoxFit.fill)),
-                child:  Padding(
-                  padding: EdgeInsets.fromLTRB(0, 210, 0, 5),
-                  child:  Container(
-                    alignment: Alignment.center,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(15),
-                      color: Colors.white,
-
-                    ),
-
-                    child: Text(
-                    "Dance Classes",
-                    style: TextStyle(
-                      fontSize: 20,
-                      color: Colors.pinkAccent,
-                    ),
-                    textAlign: TextAlign.center,
-                  ),)
-                ),
+                child: Padding(
+                    padding: EdgeInsets.fromLTRB(0, 210, 0, 5),
+                    child: Container(
+                      alignment: Alignment.center,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(15),
+                        color: Colors.white,
+                      ),
+                      child: Text(
+                        "Dance Classes",
+                        style: TextStyle(
+                          fontSize: 20,
+                          color: Colors.pinkAccent,
+                        ),
+                        textAlign: TextAlign.center,
+                      ),
+                    )),
               ),
             ),
           )
