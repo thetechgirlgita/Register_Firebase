@@ -29,9 +29,19 @@ class _HomePageState extends State<HomePage> {
            IconButton(
             icon: Icon(Icons.logout_rounded),
             onPressed: (){
-              FirebaseAuth.instance.signOut(
-              ).then((value) => Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => InitialPage())) );
-             //
+              AlertDialog(
+                actions: [
+                  ElevatedButton(
+                      child: Text("You are logging out?"),
+              onPressed: () {
+                FirebaseAuth.instance.signOut(
+                ).then((value) =>
+                    Navigator.push(context, MaterialPageRoute(builder: (
+                        BuildContext context) => InitialPage())));
+              },//,
+                      )
+                ],
+              );
              }
           )
         ],
